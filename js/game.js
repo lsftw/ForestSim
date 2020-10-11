@@ -57,6 +57,11 @@ function keyPressed(key) {
             logDebug('move down');
             Game.canvasViewport.y += 5;
             break;
+        case '0':
+            logDebug('reset viewport');
+            Game.canvasViewport.x = 0;
+            Game.canvasViewport.y = 0;
+            break;
     }
 }
 
