@@ -16,14 +16,14 @@ function makeScene() {
 
     var addRemoveEntities = function(scene) {
         var updatedEntities = scene.entities.filter(entity => !entityIdsToRemove.has(entity.id));
-        updatedEntities.concat(entitiesToAdd);
+        updatedEntities.concat(scene.entitiesToAdd);
         scene.entities = updatedEntities;
         scene.entitiesToAdd = [];
         scene.entityIdsToRemove.clear();
     }
 
     scene.update = function(frameDelta) {
-        addRemoveEntities(scene.entities);
+        addRemoveEntities(scene);
         scene.entities.forEach(entity => {
             entity.update(frameDelta);
         });

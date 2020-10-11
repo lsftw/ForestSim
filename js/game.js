@@ -10,11 +10,11 @@ var Game = {
     getCanvasContext: function(){
         return Game.canvas.getContext("2d");
     },
-    canvasViewPort: {
+    canvasViewport: {
         x: 0,
         y: 0,
-        width: this.getCanvasWidth(),
-        height: this.getCanvasHeight()
+        width: undefined,
+        height: undefined
     },
     runIntervalFunctionId: undefined, // used to pause/unpause game loop
     scene: undefined, // the game model
@@ -52,13 +52,19 @@ function unpauseGame() {
 function resetGame() {
     Game.gameStartTime = Date.now();
     Game.scene = makeScene();
-    unpauseGame();
+}
+
+function updateCanvasViewport() {
+    Game.canvasViewport.x = 0;
+    Game.canvasViewport.y = 0;
+    Game.canvasViewport.width = Game.getCanvasWidth();
+    Game.canvasViewport.height = Game.getCanvasHeight();
 }
 
 function draw() {
-    var graphicsContext = getCanvasContext();
+    var graphicsContext = Game.getCanvasContext();
     clearScreen(graphicsContext);
-    scene.draw(graphicsContext, canvasViewPort);
+    Game.scene.draw(graphicsContext, Game.canvasViewport);
 }
 function clearScreen(graphicsContext) {
     graphicsContext.fillStyle = BACKGROUND_COLOR;
@@ -71,7 +77,7 @@ function update(frameDelta) {
         return;
     }
 
-    scene.update(frameDelta);
+    Game.scene.update(frameDelta);
 }
 
 function getFramesElaspedSinceLastUpdate() {
@@ -89,14 +95,17 @@ function run() {
 
     var framesElapsed = getFramesElaspedSinceLastUpdate();
     update(framesElapsed);
+    updateCanvasViewport();
     draw();
     Game.timeSinceLastFrame = Date.now();
 }
 
 function startGame() {
-    addFocusListeners();
-    draw(); // avoid blank screen if game starts w/o focus
     resetGame();
+    updateCanvasViewport();
+    draw(); // avoid blank screen if game starts w/o focus
+    unpauseGame();
+    addFocusListeners();
     console.log('Type \"PAUSE_ON_FOCUS_LOSS = false\" without quotes to disable auto-pause.');
 }
 startGame();
