@@ -38,6 +38,34 @@ function addFocusListeners() {
     }, false);
 }
 
+function keyPressed(key) {
+    logDebug("Key pressed: " + key);
+    switch (key) {
+        case 'a':
+            logDebug('move left');
+            Game.canvasViewport.x -= 50;
+            break;
+        case 'd':
+            logDebug('move right');
+            Game.canvasViewport.x += 50;
+            break;
+        case 'w':
+            logDebug('move up');
+            Game.canvasViewport.y -= 5;
+            break;
+        case 's':
+            logDebug('move down');
+            Game.canvasViewport.y += 5;
+            break;
+    }
+}
+
+function addEventListeners() {
+    window.addEventListener('keypress', function(e) {
+        keyPressed(e.key);
+    });
+}
+
 function pauseGame() {
     if (Game.runIntervalFunctionId) {
         clearInterval(Game.runIntervalFunctionId);
@@ -58,16 +86,20 @@ function resetGame() {
 }
 
 function updateCanvasViewport() {
-    Game.canvasViewport.x = 0;
-    Game.canvasViewport.y = 0;
+    //Game.canvasViewport.x = 0;
+    //Game.canvasViewport.y = 0;
     Game.canvasViewport.width = Game.getCanvasWidth();
     Game.canvasViewport.height = Game.getCanvasHeight();
 }
 
 function draw() {
     var graphicsContext = Game.getCanvasContext();
+    graphicsContext.save();
     clearScreen(graphicsContext);
+    logDebug(Game.canvasViewport.x + ',' + Game.canvasViewport.y);
+    graphicsContext.translate(-Game.canvasViewport.x, -Game.canvasViewport.y);
     Game.scene.draw(graphicsContext, Game.canvasViewport);
+    graphicsContext.restore();
 }
 function clearScreen(graphicsContext) {
     graphicsContext.fillStyle = BACKGROUND_COLOR;
@@ -108,6 +140,7 @@ function startGame() {
     updateCanvasViewport();
     draw(); // avoid blank screen if game starts w/o focus
     unpauseGame();
+    addEventListeners();
     addFocusListeners();
     console.log('Type \"PAUSE_ON_FOCUS_LOSS = false\" without quotes to disable auto-pause.');
 }
