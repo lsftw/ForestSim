@@ -1,3 +1,6 @@
+// Dependencies: scene.js, settings.js, logging.js
+
+// The View-Controller in the game's MVC
 
 var Game = {
     canvas: document.getElementById('gameCanvas'),
@@ -51,7 +54,7 @@ function unpauseGame() {
 
 function resetGame() {
     Game.gameStartTime = Date.now();
-    Game.scene = makeScene();
+    Game.scene = ForestGenerator.makeScene(Game.getCanvasWidth() * 3, Game.getCanvasHeight());
 }
 
 function updateCanvasViewport() {
