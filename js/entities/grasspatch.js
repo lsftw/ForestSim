@@ -8,15 +8,18 @@ var GrassPatch = {
         // Possibly consider moving this up to CompositeEntity
         var propagatePropertiesToContainedEntity = function(compositeEntity, entity, index) {
             entity.color = compositeEntity.color;
-            entity.width = compositeEntity.width / compositeEntity.entities.length;
+            //entity.width = compositeEntity.width / compositeEntity.entities.length;
+            entity.width = compositeEntity.width;
             entity.height = compositeEntity.height;
-            entity.x = compositeEntity.x + compositeEntity.width * index;
+            entity.x = compositeEntity.x;
+            //entity.x = compositeEntity.x + compositeEntity.width * index;
             entity.y = compositeEntity.y;
         };
 
-        var minAngle = Math.PI / 5;
-        var maxAngle = Math.PI * 4 / 5;
-        var tuftsOfGrass = 4;
+        var minAngle = -Math.PI / 4;
+        var maxAngle = Math.PI / 4;
+        //var tuftsOfGrass = 4;
+        var tuftsOfGrass = 3;
         for (var i = 0; i < tuftsOfGrass; i++) {
             var grassTuft = NewGrass.makeEntity(scene);
             propagatePropertiesToContainedEntity(grassPatch, grassTuft, i);
@@ -25,14 +28,9 @@ var GrassPatch = {
             } else {
                 grassTuft.angle = i * (maxAngle - minAngle) / (tuftsOfGrass - 1);
             }
+            //grassTuft.angle = Math.PI/2;
             grassPatch.entities.push(grassTuft);
         }
-
-        /*grassPatch.draw = function(graphicsContext) {
-            grassPatch.entities.forEach(entity => {
-                entity.draw(graphicsContext);
-            });
-        };*/
 
         // Possibly consider moving this up to CompositeEntity
         var propagatePropertiesToContainedEntities = function(compositeEntity) {

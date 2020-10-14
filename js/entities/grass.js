@@ -18,11 +18,19 @@ var NewGrass = {
                 var point = grass.shapePoints[i];
                 if (i == 0) {
                     graphicsContext.moveTo(point.x, point.y);
+                    graphicsContext.strokeStyle = "#ff0000";
                 } else {
                     graphicsContext.lineTo(point.x, point.y);
+                    if (i == grass.shapePoints.length - 1) {
+                        graphicsContext.strokeStyle = "#000000";
+                        point = grass.shapePoints[0];
+                        graphicsContext.lineTo(point.x, point.y);
+                    }
                 }
             }
-            graphicsContext.fill();
+            graphicsContext.stroke();
+            graphicsContext.closePath();
+            //graphicsContext.fill();
         };
 
         var updateShapePoints = function(grass) {
@@ -40,8 +48,20 @@ var NewGrass = {
                 Utility.rotatePointAroundCenter(shapePoint, centerPoint, grass.angle));
         };
 
+        grass.timer = 0;
+        grass.direction = 1;
+        var experimentalWindSway = function(grass) {
+            console.log(grass.timer + ',' + (grass.timer / 10) % 2 == 0);
+            grass.timer++;
+            if (grass.timer > 50) {
+                grass.timer = 0;
+                grass.direction *= -1;
+            }
+            grass.angle += Math.PI / 180 / 2 * grass.direction;
+        };
         grass.update = function(timeDelta) {
             updateShapePoints(grass);
+            //experimentalWindSway(grass);
         };
 
         return grass;
