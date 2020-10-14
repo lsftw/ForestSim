@@ -26,5 +26,13 @@ var Utility = {
         var green = Utility.decimalToHex(Utility.randomInt(green1, green2));
         var blue = Utility.decimalToHex(Utility.randomInt(blue1, blue2));
         return '#' + red + green + blue;
+    },
+    rotatePointAroundCenter: function(point, center, angleInRadians) {
+        // Algorithm from https://math.stackexchange.com/a/2119538
+        var sinValue = Math.sin(angleInRadians);
+        var cosValue = Math.cos(angleInRadians);
+        var xRotated = (point.x - center.x) * cosValue + (point.y - center.y) * sinValue + center.x;
+        var yRotated = -1 * (point.x - center.x) * sinValue + (point.y - center.y) * cosValue + center.y;
+        return { x: xRotated, y: yRotated };
     }
 };

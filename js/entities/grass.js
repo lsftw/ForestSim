@@ -8,25 +8,38 @@ var NewGrass = {
         grass.name = 'grass';
         grass.color = '#59FF7D';
 
-        grass.angle = 0;
+        grass.angle = 0; // in radians
         grass.shapePoints = [];
 
         grass.draw = function(graphicsContext) {
             graphicsContext.fillStyle = grass.color;
-            graphicsContext.fillRect(grass.x, grass.y, grass.width, grass.height);
+            graphicsContext.beginPath();
+            for (var i = 0; i < grass.shapePoints.length; i++) {
+                if (i == 0) {
+                    graphicsContext.moveTo(grass.shapePoints[i]);
+                } else {
+                    graphicsContext.lineTo(grass.shapePoints[i]);
+                }
+            }
+            graphicsContext.fill();
         };
 
-        var updatePointsToMatchSize = function(grass) {
+        var updateShapePoints = function(grass) {
             // need to support angle
-            grass.shapePoints = [
+            var basePoints = [
                 { x: grass.x, y: grass.y },
-                { x: grass.x + grass.width / 2, y: grass.y + grass.height },
+                { x: grass.x + grass.width / 2, y: grass.y - grass.height },
                 { x: grass.x + grass.width, y: grass.y }
             ];
+            var centerPoint = {
+                x: grass.x + grass.width / 2,
+                y: grass.y - grass.height / 2
+            };
+            grass.shapePoints = basePoints.map(shapePoint => rotatePointAroundCenter(shapePoint, centerPoint, angle));
         };
 
         grass.update = function(timeDelta) {
-            updatePointsToMatchSize(grass);
+            updateShapePoints(grass);
         };
 
         return grass;

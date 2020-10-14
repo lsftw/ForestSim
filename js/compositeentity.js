@@ -9,7 +9,7 @@
 
 var CompositeEntity = {
     makeEntity: function(scene) {
-        var compositeEntity = Entity.makeEntity();
+        var compositeEntity = Entity.makeEntity(scene);
         compositeEntity.entities = [];
 
         compositeEntity.draw = function(graphicsContext) {
