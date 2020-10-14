@@ -44,6 +44,9 @@ var GrassPatch = {
 
         grassPatch.update = function(frameDelta) {
             propagatePropertiesToContainedEntities(grassPatch);
+            grassPatch.entities.forEach(entity => {
+                entity.update(frameDelta);
+            });
         };
 
         return grassPatch;

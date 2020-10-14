@@ -15,10 +15,11 @@ var NewGrass = {
             graphicsContext.fillStyle = grass.color;
             graphicsContext.beginPath();
             for (var i = 0; i < grass.shapePoints.length; i++) {
+                var point = grass.shapePoints[i];
                 if (i == 0) {
-                    graphicsContext.moveTo(grass.shapePoints[i]);
+                    graphicsContext.moveTo(point.x, point.y);
                 } else {
-                    graphicsContext.lineTo(grass.shapePoints[i]);
+                    graphicsContext.lineTo(point.x, point.y);
                 }
             }
             graphicsContext.fill();
@@ -35,7 +36,8 @@ var NewGrass = {
                 x: grass.x + grass.width / 2,
                 y: grass.y - grass.height / 2
             };
-            grass.shapePoints = basePoints.map(shapePoint => rotatePointAroundCenter(shapePoint, centerPoint, angle));
+            grass.shapePoints = basePoints.map(shapePoint =>
+                Utility.rotatePointAroundCenter(shapePoint, centerPoint, grass.angle));
         };
 
         grass.update = function(timeDelta) {
