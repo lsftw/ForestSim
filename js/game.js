@@ -86,8 +86,6 @@ function resetGame() {
 }
 
 function updateCanvasViewport() {
-    //Game.canvasViewport.x = 0;
-    //Game.canvasViewport.y = 0;
     Game.canvasViewport.width = Game.getCanvasWidth();
     Game.canvasViewport.height = Game.getCanvasHeight();
 }
