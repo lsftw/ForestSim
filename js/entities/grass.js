@@ -36,6 +36,8 @@ var NewGrass = {
             var viewTop = viewport.y;
             var viewBottom = viewport.y + viewport.height;
 
+            // This algorithm produces false negatives
+            // The correct algorithm should use line-rectangle collision detection
             for (var i = 0; i < points.length; i++) {
                 var point = points[i];
                 var pointLeft = point.x;
