@@ -14,7 +14,6 @@ var ForestGenerator = {
             var y = height - 1;
             var color = Utility.randomColor('#59FF7D', '#486900');
             var grassPatch = GrassPatch.makeEntity(scene, x, y, grassWidth, grassHeight, color);
-            console.log(grassPatch.color);
             scene.entities.push(grassPatch);
         }
 
