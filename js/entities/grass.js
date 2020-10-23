@@ -27,8 +27,6 @@ var NewGrass = {
                     }
                 }
             }
-            //graphicsContext.stroke();
-            //graphicsContext.closePath();
             graphicsContext.fill();
         };
 
@@ -65,16 +63,15 @@ var NewGrass = {
         grass.timer = 0;
         grass.direction = 1;
         var experimentalWindSway = function(grass) {
-            console.log(grass.timer + ',' + (grass.timer / 10) % 2 == 0);
             grass.timer++;
             if (grass.timer > 50) {
                 grass.timer = 0;
                 grass.direction *= -1;
             }
-            grass.angle += Math.PI / 180 / 2 * grass.direction;
+            grass.shapePoints[0].x += -.2 * grass.direction;
         };
         grass.update = function(timeDelta) {
-            //experimentalWindSway(grass);
+            experimentalWindSway(grass);
         };
 
         return grass;
