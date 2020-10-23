@@ -3,13 +3,12 @@
 // new polygonal grass instead of rectangular grass
 
 var NewGrass = {
-    makeEntity: function(scene) {
+    makeEntity: function(scene, points) {
         var grass = Entity.makeEntity(scene);
         grass.name = 'grass';
         grass.color = '#59FF7D';
 
-        grass.angle = 0; // in radians
-        grass.shapePoints = [];
+        grass.shapePoints = points; // array
 
         grass.draw = function(graphicsContext) {
             graphicsContext.fillStyle = grass.color;
@@ -28,24 +27,39 @@ var NewGrass = {
                     }
                 }
             }
-            graphicsContext.stroke();
-            graphicsContext.closePath();
-            //graphicsContext.fill();
+            //graphicsContext.stroke();
+            //graphicsContext.closePath();
+            graphicsContext.fill();
         };
 
-        var updateShapePoints = function(grass) {
-            // need to support angle
-            var basePoints = [
-                { x: grass.x, y: grass.y },
-                { x: grass.x + grass.width / 2, y: grass.y - grass.height },
-                { x: grass.x + grass.width, y: grass.y }
-            ];
-            var centerPoint = {
-                x: grass.x + grass.width / 2,
-                y: grass.y - grass.height / 2
-            };
-            grass.shapePoints = basePoints.map(shapePoint =>
-                Utility.rotatePointAroundCenter(shapePoint, centerPoint, grass.angle));
+        grass.isVisible = function(viewport) {
+            var viewLeft = viewport.x;
+            var viewRight = viewport.x + viewport.width;
+            var viewTop = viewport.y;
+            var viewBottom = viewport.y + viewport.height;
+
+            for (var i = 0; i < points.length; i++) {
+                var point = points[i];
+                var pointLeft = point.x;
+                var pointRight = point.x + point.width;
+                var pointTop = point.y;
+                var pointBottom = point.y + point.height;
+        
+                var leftSideContained = pointLeft > viewLeft && pointLeft < viewRight;
+                var rightSideContained = pointRight > viewLeft && pointRight < viewRight;
+                var topSideContained = pointTop > viewTop && pointTop < viewBottom;
+                var bottomSideContained = pointBottom > viewTop && pointBottom < viewBottom;
+        
+                var horizontallyContained = leftSideContained || rightSideContained;
+                var verticallyContained = topSideContained || bottomSideContained;
+        
+                // two polygons collide if and only if at least 1 point is contained within the other polygon
+                var overlapsWithViewport = horizontallyContained && verticallyContained;
+                if (overlapsWithViewport) {
+                    return true;
+                }
+            }
+            return false;
         };
 
         grass.timer = 0;
@@ -60,7 +74,6 @@ var NewGrass = {
             grass.angle += Math.PI / 180 / 2 * grass.direction;
         };
         grass.update = function(timeDelta) {
-            updateShapePoints(grass);
             //experimentalWindSway(grass);
         };
 

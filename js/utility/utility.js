@@ -16,23 +16,15 @@ var Utility = {
     },
     // Usage: randomColor('#59FF7D', '#486900')
     randomColor: function(color1, color2) {
-        var red1 = Utility.hexToDecimal(color1.slice(1, 3));
-        var green1 = Utility.hexToDecimal(color1.slice(3, 5));
-        var blue1 = Utility.hexToDecimal(color1.slice(5, 7));
-        var red2 = Utility.hexToDecimal(color2.slice(1, 3));
-        var green2 = Utility.hexToDecimal(color2.slice(3, 5));
-        var blue2 = Utility.hexToDecimal(color2.slice(5, 7));
-        var red = Utility.decimalToHex(Utility.randomInt(red1, red2));
-        var green = Utility.decimalToHex(Utility.randomInt(green1, green2));
-        var blue = Utility.decimalToHex(Utility.randomInt(blue1, blue2));
+        var red1Hex = Utility.hexToDecimal(color1.slice(1, 3));
+        var green1Hex = Utility.hexToDecimal(color1.slice(3, 5));
+        var blue1Hex = Utility.hexToDecimal(color1.slice(5, 7));
+        var red2Hex = Utility.hexToDecimal(color2.slice(1, 3));
+        var green2Hex = Utility.hexToDecimal(color2.slice(3, 5));
+        var blue2Hex = Utility.hexToDecimal(color2.slice(5, 7));
+        var red = Utility.decimalToHex(Utility.randomInt(red1Hex, red2Hex));
+        var green = Utility.decimalToHex(Utility.randomInt(green1Hex, green2Hex));
+        var blue = Utility.decimalToHex(Utility.randomInt(blue1Hex, blue2Hex));
         return '#' + red + green + blue;
-    },
-    rotatePointAroundCenter: function(point, center, angleInRadians) {
-        // Algorithm from https://math.stackexchange.com/a/2119538
-        var sinValue = Math.sin(angleInRadians);
-        var cosValue = Math.cos(angleInRadians);
-        var xRotated = (point.x - center.x) * cosValue + (point.y - center.y) * sinValue + center.x;
-        var yRotated = -1 * (point.x - center.x) * sinValue + (point.y - center.y) * cosValue + center.y;
-        return { x: xRotated, y: yRotated };
     }
 };

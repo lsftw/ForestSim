@@ -42,23 +42,18 @@ function keyPressed(key) {
     logDebug("Key pressed: " + key);
     switch (key) {
         case 'a':
-            logDebug('move left');
             Game.canvasViewport.x -= 50;
             break;
         case 'd':
-            logDebug('move right');
             Game.canvasViewport.x += 50;
             break;
         case 'w':
-            logDebug('move up');
             Game.canvasViewport.y -= 5;
             break;
         case 's':
-            logDebug('move down');
             Game.canvasViewport.y += 5;
             break;
         case '0':
-            logDebug('reset viewport');
             Game.canvasViewport.x = 0;
             Game.canvasViewport.y = 0;
             break;
@@ -101,7 +96,6 @@ function draw() {
     var graphicsContext = Game.getCanvasContext();
     graphicsContext.save();
     clearScreen(graphicsContext);
-    logDebug(Game.canvasViewport.x + ',' + Game.canvasViewport.y);
     graphicsContext.translate(-Game.canvasViewport.x, -Game.canvasViewport.y);
     Game.scene.draw(graphicsContext, Game.canvasViewport);
     graphicsContext.restore();
