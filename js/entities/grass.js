@@ -62,16 +62,16 @@ var NewGrass = {
 
         grass.timer = 0;
         grass.direction = 1;
-        var experimentalWindSway = function(grass) {
-            grass.timer++;
-            if (grass.timer > 50) {
+        var experimentalWindSway = function(grass, frameDelta) {
+            grass.timer += frameDelta;
+            if (grass.timer > 100) {
                 grass.timer = 0;
                 grass.direction *= -1;
             }
-            grass.shapePoints[0].x += -.2 * grass.direction;
+            grass.shapePoints[0].x += -.1 * frameDelta * grass.direction;
         };
-        grass.update = function(timeDelta) {
-            experimentalWindSway(grass);
+        grass.update = function(frameDelta) {
+            experimentalWindSway(grass, frameDelta);
         };
 
         return grass;
