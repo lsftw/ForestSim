@@ -8,26 +8,23 @@ var ForestGenerator = {
 
         var grassPatchCount = Math.floor(Utility.randomInt(5, 7) * width / 200.0);
         for (var i = 0; i < grassPatchCount; i++) {
-            var grassWidth = 55 + Utility.randomInt(10, 30);
+            var grassWidth = 55 + Utility.randomInt(10, 100);
             var grassHeight = grassWidth / 2 + Utility.randomInt(1, 8);
             var x = Utility.randomInt(0, width);
-            var y = height - 1;
+            var y = height - 1; // grass y = bottom of the grass
             var color = Utility.randomColor('#59FF7D', '#486900');
             var grassPatch = GrassPatch.makeEntity(scene, x, y, grassWidth, grassHeight, color);
             scene.entities.push(grassPatch);
         }
 
-        var makeRectangularGrassScene = function(scene) {
-            var grassCount = Math.floor(Utility.randomInt(20, 50) * width / 200.0);
-            for (var i = 0; i < grassCount; i++) {
-                var grass = Grass.makeEntity();
-                grass.width = 3 + Utility.randomInt(1, 15);
-                grass.height = 7 + Utility.randomInt(1, 30);
-                grass.x = Utility.randomInt(0, width);
-                grass.y = height - grass.height;
-                grass.color = Utility.randomColor('#59FF7D', '#486900');
-                scene.entities.push(grass);
-            }
+        var shrubCount = Math.floor(Utility.randomInt(2, 3) * width / 300.0);
+        for (var i = 0; i < shrubCount; i++) {
+            var shrubWidth = 150 + Utility.randomInt(30, 80);
+            var shrubHeight = shrubWidth / 2 + Utility.randomInt(1, 8);
+            var x = Utility.randomInt(0, width);
+            var y = height - 3;
+            var shrub = Shrub.makeEntity(scene, x, y, shrubWidth, shrubHeight);
+            scene.entities.push(shrub);
         }
 
         return scene;
