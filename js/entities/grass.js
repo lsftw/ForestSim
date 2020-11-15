@@ -20,11 +20,6 @@ var Grass = {
                     graphicsContext.strokeStyle = "#ff0000";
                 } else {
                     graphicsContext.lineTo(point.x, point.y);
-                    if (i == grass.shapePoints.length - 1) {
-                        graphicsContext.strokeStyle = "#000000";
-                        point = grass.shapePoints[0];
-                        graphicsContext.lineTo(point.x, point.y);
-                    }
                 }
             }
             graphicsContext.fill();
