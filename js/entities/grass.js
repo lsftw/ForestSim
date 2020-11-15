@@ -36,13 +36,8 @@ var Grass = {
             for (var i = 0; i < points.length; i++) {
                 var point = points[i];
         
-                var leftSideContained = point.x > viewLeft && point.x < viewRight;
-                var rightSideContained = point.x > viewLeft && point.x < viewRight;
-                var topSideContained = point.y > viewTop && point.y < viewBottom;
-                var bottomSideContained = point.y > viewTop && point.y < viewBottom;
-        
-                var horizontallyContained = leftSideContained || rightSideContained;
-                var verticallyContained = topSideContained || bottomSideContained;
+                var horizontallyContained = point.x > viewLeft && point.x < viewRight;
+                var verticallyContained = point.y > viewTop && point.y < viewBottom;
         
                 // two polygons collide if and only if at least 1 point is contained within the other polygon
                 var overlapsWithViewport = horizontallyContained && verticallyContained;
