@@ -27,5 +27,14 @@ var Utility = {
         var green = Utility.decimalToHex(Utility.randomInt(greenHex1, greenHex2));
         var blue = Utility.decimalToHex(Utility.randomInt(blueHex1, blueHex2));
         return '#' + red + green + blue;
+    },
+    // Usage: var hasEvenNumber = arrayHasAny('[1, 2, 3, 4]', number => number % 2)
+    arrayHasAny: function(array, predicate) {
+        for (var element of array) {
+            if (predicate(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 };

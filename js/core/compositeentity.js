@@ -18,6 +18,10 @@ var CompositeEntity = {
             });
         };
 
+        compositeEntity.isVisible = function(viewport) {
+            return Utility.arrayHasAny(compositeEntity.entities, componentEntity => componentEntity.isVisible(viewport));
+        };
+
         compositeEntity.update = function(frameDelta) {
             compositeEntity.entities.forEach(entity => {
                 entity.update(frameDelta);
