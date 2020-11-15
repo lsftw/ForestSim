@@ -15,29 +15,29 @@ var GrassPatch = {
         // pointses (n.): 1. plural of points
         var pointses = [
             [
-                { x: x, y: y - height / 3 },
-                { x: x + 3 * width / 8, y: y },
-                { x: x + 5 * width / 8, y: y }
+                { x: x                  , y: y + height * 2 / 3 },
+                { x: x + width * 3 / 8  , y: y + height },
+                { x: x + width * 5 / 8  , y: y + height }
             ],
             [
-                { x: x + width / 4, y: y - 2 * height / 3 },
-                { x: x + 3 * width / 8, y: y },
-                { x: x + 5 * width / 8, y: y }
+                { x: x + width / 4      , y: y + height / 3 },
+                { x: x + width * 3 / 8  , y: y + height },
+                { x: x + width * 5 / 8  , y: y + height }
             ],
             [
-                { x: x + width / 2, y: y - height },
-                { x: x + 3 * width / 8, y: y },
-                { x: x + 5 * width / 8, y: y }
+                { x: x + width / 2      , y: y },
+                { x: x + width * 3 / 8  , y: y + height },
+                { x: x + width * 5 / 8  , y: y + height }
             ],
             [
-                { x: x + 3 * width / 4, y: y - 2 * height / 3 },
-                { x: x + 3 * width / 8, y: y },
-                { x: x + 5 * width / 8, y: y }
+                { x: x + width * 3 / 4  , y: y + height / 3 },
+                { x: x + width * 3 / 8  , y: y + height },
+                { x: x + width * 5 / 8  , y: y + height }
             ],
             [
-                { x: x + width, y: y - height / 3 },
-                { x: x + 3 * width / 8, y: y },
-                { x: x + 5 * width / 8, y: y }
+                { x: x + width          , y: y + height * 2 / 3 },
+                { x: x + width * 3 / 8  , y: y + height },
+                { x: x + width * 5 / 8  , y: y + height }
             ]
         ];
         for (var i = 0; i < pointses.length; i++) {

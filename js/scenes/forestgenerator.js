@@ -11,7 +11,7 @@ var ForestGenerator = {
             var grassWidth = 55 + Utility.randomInt(10, 100);
             var grassHeight = grassWidth / 2 + Utility.randomInt(1, 8);
             var x = Utility.randomInt(0, width);
-            var y = height; // grass y = bottom of the grass
+            var y = height - grassHeight;
             var color = Utility.randomColor('#59FF7D', '#486900');
             var grassPatch = GrassPatch.makeEntity(scene, x, y, grassWidth, grassHeight, color);
             scene.entities.push(grassPatch);
