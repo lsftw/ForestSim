@@ -7,7 +7,7 @@ var Utility = {
             min = max;
             max = tmp;
         }
-        return Math.floor(Math.random() * (max - min)) + min;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     hexToDecimal: function (hex) {
         return parseInt(hex, 16);
