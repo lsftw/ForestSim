@@ -32,8 +32,8 @@ var Grass = {
 
             // This algorithm produces false negatives
             // The correct algorithm should use line-rectangle collision detection
-            for (var i = 0; i < points.length; i++) {
-                var point = points[i];
+            for (var i = 0; i < grass.shapePoints.length; i++) {
+                var point = grass.shapePoints[i];
         
                 var horizontallyContained = point.x > viewLeft && point.x < viewRight;
                 var verticallyContained = point.y > viewTop && point.y < viewBottom;

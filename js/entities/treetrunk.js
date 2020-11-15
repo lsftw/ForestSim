@@ -47,6 +47,29 @@ var TreeTrunk = {
             graphicsContext.stroke();
         };
 
+        trunk.isVisible = function(viewport) {
+            var viewLeft = viewport.x;
+            var viewRight = viewport.x + viewport.width;
+            var viewTop = viewport.y;
+            var viewBottom = viewport.y + viewport.height;
+
+            // This algorithm produces false negatives
+            // The correct algorithm should use line-rectangle collision detection
+            for (var i = 0; i < trunk.shapePoints.length; i++) {
+                var point = trunk.shapePoints[i];
+        
+                var horizontallyContained = point.x > viewLeft && point.x < viewRight;
+                var verticallyContained = point.y > viewTop && point.y < viewBottom;
+        
+                // two polygons collide if and only if at least 1 point is contained within the other polygon
+                var overlapsWithViewport = horizontallyContained && verticallyContained;
+                if (overlapsWithViewport) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
         return trunk;
     }
 };
