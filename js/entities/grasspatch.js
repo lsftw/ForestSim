@@ -46,12 +46,6 @@ var GrassPatch = {
             grassPatch.entities.push(grassTuft);
         }
 
-        grassPatch.update = function(frameDelta) {
-            grassPatch.entities.forEach(entity => {
-                entity.update(frameDelta);
-            });
-        };
-
         return grassPatch;
     }
 };
