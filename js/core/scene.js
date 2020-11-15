@@ -1,4 +1,4 @@
-// Dependencies: entity.js
+// Dependencies: core/entity.js
 
 // The Model in the game's MVC
 

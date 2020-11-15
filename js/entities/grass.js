@@ -1,6 +1,6 @@
-// Dependencies: entity.js
+// Dependencies: core/entity.js
 
-// new polygonal grass instead of rectangular grass
+// 3-point triangular polygonal grass blade
 
 var NewGrass = {
     makeEntity: function(scene, points) {

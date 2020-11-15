@@ -1,4 +1,4 @@
-// Dependencies: entities/*.js, utility.js
+// Dependencies: entities/*.js, utility/utility.js
 
 // NOTE: Generators do not support seeds.
 

@@ -1,4 +1,4 @@
-// Dependencies: scene.js, settings.js, logging.js
+// Dependencies: core/scene.js, core/settings.js, core/logging.js
 
 // The View-Controller in the game's MVC
 

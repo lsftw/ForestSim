@@ -1,4 +1,4 @@
-// Dependencies: scene.js (but load this before scene.js)
+// Dependencies: core/scene.js (but load this before scene.js)
 
 // Entities are dependent on their containing scene to call draw/update
 

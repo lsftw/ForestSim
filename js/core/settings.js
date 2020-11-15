@@ -1,3 +1,4 @@
+// Dependencies: None
 
 // Pause game when the browser tab isn't active / window isn't active
 var PAUSE_ON_FOCUS_LOSS = true;

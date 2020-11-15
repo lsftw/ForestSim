@@ -1,4 +1,4 @@
-// Dependencies: entity.js
+// Dependencies: core/entity.js
 
 // Alternate name - entitycontainer
 

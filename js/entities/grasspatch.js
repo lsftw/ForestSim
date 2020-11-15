@@ -1,4 +1,6 @@
-// Dependencies: compositeentity.js grass.js
+// Dependencies: core/compositeentity.js core/grass.js
+
+// Grass patch made of 5 hardcoded grass blades
 
 var GrassPatch = {
     makeEntity: function(scene, x, y, width, height, color) {

@@ -1,3 +1,4 @@
+// Dependencies: None
 
 function logWarning(message) {
     console.log("[WARNING] " + message);

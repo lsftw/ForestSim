@@ -1,4 +1,4 @@
-// Dependencies: entity.js
+// Dependencies: core/entity.js
 
 var Shrub = {
     makeEntity: function(scene, x, y, width, height) {
