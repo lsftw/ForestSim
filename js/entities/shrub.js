@@ -13,9 +13,9 @@ var Shrub = {
         shrub.draw = function(graphicsContext) {
             graphicsContext.strokeStyle = shrub.color;
             graphicsContext.beginPath();
-            graphicsContext.moveTo(shrub.x, shrub.y);
-            graphicsContext.quadraticCurveTo(shrub.x, shrub.y - height, shrub.x + shrub.width / 2, shrub.y - shrub.height);
-            graphicsContext.quadraticCurveTo(shrub.x + shrub.width, shrub.y - height, shrub.x + shrub.width, shrub.y);
+            graphicsContext.moveTo(shrub.x, shrub.y + shrub.height);
+            graphicsContext.quadraticCurveTo(shrub.x, shrub.y, shrub.x + shrub.width / 2, shrub.y);
+            graphicsContext.quadraticCurveTo(shrub.x + shrub.width, shrub.y, shrub.x + shrub.width, shrub.y + height);
             graphicsContext.closePath();
             graphicsContext.stroke();
         };

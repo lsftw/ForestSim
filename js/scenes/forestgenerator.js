@@ -22,7 +22,7 @@ var ForestGenerator = {
             var shrubWidth = 150 + Utility.randomInt(30, 80);
             var shrubHeight = shrubWidth / 2 + Utility.randomInt(1, 8);
             var x = Utility.randomInt(0, width);
-            var y = height - 3;
+            var y = height - shrubHeight;
             var shrub = Shrub.makeEntity(scene, x, y, shrubWidth, shrubHeight);
             scene.entities.push(shrub);
         }
