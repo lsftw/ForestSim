@@ -17,7 +17,6 @@ var Grass = {
                 var point = grass.shapePoints[i];
                 if (i == 0) {
                     graphicsContext.moveTo(point.x, point.y);
-                    graphicsContext.strokeStyle = "#ff0000";
                 } else {
                     graphicsContext.lineTo(point.x, point.y);
                 }
