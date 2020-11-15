@@ -27,14 +27,14 @@ var ForestGenerator = {
             scene.entities.push(shrub);
         }
 
-        var trunkCount = Math.floor(Utility.randomInt(2, 3) * width / 500.0);
-        for (var i = 0; i < trunkCount; i++) {
-            var trunkWidth = 150 + Utility.randomInt(30, 80);
-            var trunkHeight = trunkWidth * Utility.randomInt(40, 80) / 30;
+        var treeCount = Math.floor(Utility.randomInt(2, 3) * width / 500.0);
+        for (var i = 0; i < treeCount; i++) {
+            var treeWidth = 200 + Utility.randomInt(50, 80);
+            var treeHeight = treeWidth * Utility.randomInt(40, 80) / 30;
             var x = Utility.randomInt(0, width);
-            var y = height - trunkHeight;
-            var trunk = TreeTrunk.makeEntity(scene, x, y, trunkWidth, trunkHeight);
-            scene.entities.push(trunk);
+            var y = height - treeHeight;
+            var tree = EvergreenTree.makeEntity(scene, x, y, treeWidth, treeHeight);
+            scene.entities.push(tree);
         }
 
         return scene;

@@ -20,3 +20,6 @@ Third progress screenshot. Added very simple shrubs.
 
 ![Image of a 1024x720 green rectangle with many small spiky rotated triangle patch clusters of differing shades of green, round circular green blobs, and tall concave brown shapes along the bottom](/readme-images/progress-screenshot-4.png?raw=true)  
 Fourth progress screenshot. Added very simple tree trunks.
+
+![Image of a 1024x720 green rectangle with many small spiky rotated triangle patch clusters of differing shades of green, round circular green blobs, and short concave brown shapes with stacks of green triangles atop them along the bottom](/readme-images/progress-screenshot-5.png?raw=true)  
+Fifth progress screenshot. Added evergreen trees.
