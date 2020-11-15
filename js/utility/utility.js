@@ -36,5 +36,16 @@ var Utility = {
             }
         }
         return false;
+    },
+    findCenterPoint: function(points) {
+        if (points.length > 0) {
+            var sumX = 0;
+            var sumY = 0;
+            for (var i = 0; i < points.length; i++) {
+                sumX += points[i].x;
+                sumY += points[i].y;
+            }
+            return { x: sumX / points.length, y: sumY / points.length };
+        }
     }
 };
