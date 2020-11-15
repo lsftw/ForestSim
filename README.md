@@ -3,9 +3,11 @@
 
 # Roadmap
 ## Basic Plants
-* Support composite entities, such as grass patches and trees
 * Add wind and swaying mechanics to plants
-## Multiple Layers - Pseudo-3D
+## Graphical Layering
+* Allow some entities to be in the foreground or background
+* Add parallax effect
+## Multiple Logical Layers - Pseudo-3D
 * Support multiple scenes, showing background and foreground scenes as 2d layer slices
 
 # Screenshots
