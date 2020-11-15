@@ -2,7 +2,7 @@
 
 // 3-point triangular polygonal grass blade
 
-var NewGrass = {
+var Grass = {
     makeEntity: function(scene, points) {
         var grass = Entity.makeEntity(scene);
         grass.name = 'grass';

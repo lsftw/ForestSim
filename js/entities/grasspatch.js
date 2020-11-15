@@ -41,7 +41,7 @@ var GrassPatch = {
             ]
         ];
         for (var i = 0; i < pointses.length; i++) {
-            var grassTuft = NewGrass.makeEntity(scene, pointses[i]);
+            var grassTuft = Grass.makeEntity(scene, pointses[i]);
             grassTuft.color = color;
             grassPatch.entities.push(grassTuft);
         }
