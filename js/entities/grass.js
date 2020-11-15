@@ -40,15 +40,11 @@ var Grass = {
             // The correct algorithm should use line-rectangle collision detection
             for (var i = 0; i < points.length; i++) {
                 var point = points[i];
-                var pointLeft = point.x;
-                var pointRight = point.x + point.width;
-                var pointTop = point.y;
-                var pointBottom = point.y + point.height;
         
-                var leftSideContained = pointLeft > viewLeft && pointLeft < viewRight;
-                var rightSideContained = pointRight > viewLeft && pointRight < viewRight;
-                var topSideContained = pointTop > viewTop && pointTop < viewBottom;
-                var bottomSideContained = pointBottom > viewTop && pointBottom < viewBottom;
+                var leftSideContained = point.x > viewLeft && point.x < viewRight;
+                var rightSideContained = point.x > viewLeft && point.x < viewRight;
+                var topSideContained = point.y > viewTop && point.y < viewBottom;
+                var bottomSideContained = point.y > viewTop && point.y < viewBottom;
         
                 var horizontallyContained = leftSideContained || rightSideContained;
                 var verticallyContained = topSideContained || bottomSideContained;
