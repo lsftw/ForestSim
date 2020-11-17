@@ -29,8 +29,8 @@ var ForestGenerator = {
 
         var treeCount = Math.floor(Utility.randomInt(2, 3) * width / 500.0);
         for (var i = 0; i < treeCount; i++) {
-            var treeWidth = 200 + Utility.randomInt(50, 80);
-            var treeHeight = treeWidth * Utility.randomInt(40, 80) / 30;
+            var treeWidth = 200 + Utility.randomInt(50, 90);
+            var treeHeight = treeWidth * Utility.randomInt(50, 90) / 30;
             var x = Utility.randomInt(0, width);
             var y = height - treeHeight;
             var tree = EvergreenTree.makeEntity(scene, x, y, treeWidth, treeHeight);
