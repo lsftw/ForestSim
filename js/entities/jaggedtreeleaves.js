@@ -30,16 +30,12 @@ var JaggedTreeLeaves = {
             for (var i = 0; i < leaves.shapePoints.length; i++) {
                 var point = leaves.shapePoints[i];
                 if (i % 3 == 0) { // every 3rd point starts a new triangle
-                    //graphicsContext.closePath();
-                    //graphicsContext.stroke();
                     graphicsContext.moveTo(point.x, point.y);
                 } else {
                     graphicsContext.lineTo(point.x, point.y);
                 }
             }
             graphicsContext.fill();
-            //graphicsContext.closePath();
-            //graphicsContext.stroke();
         };
 
         leaves.isVisible = function(viewport) {
