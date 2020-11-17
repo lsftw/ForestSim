@@ -15,9 +15,10 @@ var JaggedTreeLeaves = {
 
         leaves.shapePoints = []; // every 3 points compose a single triangle
         var numTriangles = 3;
+        var overlapAmount = .7;
         for (var i = 0; i < numTriangles; i++) {
             leaves.shapePoints.push({ x: x            , y: y + height * (i+1) / numTriangles }); // bottom left point
-            leaves.shapePoints.push({ x: x + width / 2, y: y + height * i / numTriangles }); // top point
+            leaves.shapePoints.push({ x: x + width / 2, y: y + height * i*(1-overlapAmount) / numTriangles }); // top point
             leaves.shapePoints.push({ x: x + width    , y: y + height * (i+1) / numTriangles }); // bottom right point
         }
 
